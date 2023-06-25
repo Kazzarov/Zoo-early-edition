@@ -1,0 +1,3 @@
+An example for a basic animal based data base(could be a zoo)
+This is an earlier project, using MVC in C#
+Make sure to re-build before running

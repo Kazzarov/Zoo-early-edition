@@ -1,0 +1,45 @@
+﻿@using project1.Models;
+@model IEnumerable<Animal>
+
+    <h2>The two most highly ranked animals</h2>
+<a class="btn btn-primary" asp-action="MainPage" asp-controller="Catalog">To Catalog</a>
+<br/>
+<a class="btn btn-secondary" asp-action="Index" asp-controller="Admin">To Admin Page</a>
+<div class="container">
+    <div class="row text-lg-center text-dark text-warning bg-primary">
+        <div class="col-4">
+            Picture
+        </div>
+        <div class="col-2">
+            Name
+        </div>
+        <div class="col-5">
+            Description
+        </div>
+        <div class="col-1">
+            Comment count
+        </div>
+    </div>
+    @foreach (var animal in Model)
+    {
+        <div class="row text-lg-center text-black-50 text-warning bg-info">
+            <div class="col-4 border">
+                <img src="@animal.ImagePath" height="150" />
+            </div>
+            <div class="col-2 border">
+                <h3>@animal.Name</h3>
+            </div>
+            <div class="col-5 border">
+                <h3>@animal.Description</h3>
+            </div>
+            <div class="col-1 border">
+                <h3>@animal.Comments!.Count()</h3>
+            </div>
+        </div>
+    }
+</div>
+
+
+
+
+

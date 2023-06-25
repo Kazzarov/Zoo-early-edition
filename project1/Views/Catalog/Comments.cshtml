@@ -1,0 +1,25 @@
+﻿@using project1.Models;
+@model Comment;
+
+@{
+    int id = ViewBag.AnimalId;
+}
+<a class="btn btn-primary" asp-action="Index" asp-controller="Home">To Home Page</a>
+<br />
+<a class="btn btn-secondary" asp-action="Index" asp-controller="Admin">To Admin Page</a>
+<br />
+<a class="btn btn-secondary" asp-action="MainPage" asp-controller="Catalog">To The Catalog</a>
+@foreach (Comment comment in ViewBag.Comments)
+{
+    <div>
+         <ul>@comment.Content</ul>
+        <a asp-action="DeleteComment" asp-route-id="@comment.CommentId">Delete</a>
+    </div>
+
+}
+
+<form asp-action="AddComment" method="post">
+    <input type="text" hidden value= "@id"  asp-for="@Model.AnimalId"/>
+    <input type="text" asp-for="@Model.Content" />
+    <input type="submit"/>
+</form>
